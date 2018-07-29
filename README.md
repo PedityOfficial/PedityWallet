@@ -20,13 +20,22 @@ Version 0.1 is a testing version, use only testnet keys.
 5. Receive page to show QR code address for simplifing payments
 6. History to show list of send and received transactions
 7. Native RTL support in the app
-8. 
-9. Application targetting API >=26
+8. Application targetting API >=26
 
 
 ### Prerequisites
-`Android devices with API >=26 
-Basically Android Oreo devices`
+> Android devices with API greater than 26 
+
+> Basically Android Oreo devices
+
+### Version and releases information
+> Application release format is XX.YY 
+
+> XX meaning Major update
+
+> YY Meaning Minor update
+
+Source Code will be available once testing is complete i.e. version 1.0 will feature source code.
 
 
 ### BUGS :-
@@ -38,9 +47,3 @@ Basically Android Oreo devices`
 3. Trustline check is not present
 4. History does not differenciate between receive and sent transactions available - WIP
 5. Optimizations related to balance fees deduction 
-
-### Version and releases information
-`Application release format is XX.YY 
-XX meaning Major update
-YY Meaning Minor update`
-Source Code will be available once testing is complete i.e. version 1.0 will feature source code.
