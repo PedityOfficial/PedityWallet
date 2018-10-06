@@ -59,6 +59,7 @@ Source Code will be available once testing is complete i.e. version 1.1 or 1.2 w
 - Memory Optimizations
 - Trustline and valid address check is not present
 - Only MEMO text supported, in future memo id, memo hash and memo text needs to be added
+- Ledger Nano S Support in v1.2
 
 ### ISSUE
 In case of any issues, please raise an issue on github.
