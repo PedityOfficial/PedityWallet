@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/logo"/>
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@mipmap/ic_dashboard"
+            android:title="Dashboard" />
+        <item
+            android:id="@+id/nav_send"
+            android:icon="@mipmap/ic_esend"
+            android:title="Send" />
+        <item
+            android:id="@+id/nav_receive"
+            android:icon="@mipmap/ic_erec"
+            android:title="Receive" />
+        <item
+            android:id="@+id/nav_manage"
+            android:icon="@mipmap/ic_history"
+            android:title="History" />
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@mipmap/ic_exittoapp"
+            android:title="Logout" />
+    </group>
+
+    <item android:title="Social">
+        <menu>
+            <item
+                android:id="@+id/nav_twitter"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Twitter" />
+            <item
+                android:id="@+id/nav_medium"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Medium" />
+            <item
+                android:id="@+id/nav_github"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Github" />
+        </menu>
+    </item>
+
+</menu>
