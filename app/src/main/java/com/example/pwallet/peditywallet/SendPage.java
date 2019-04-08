@@ -102,7 +102,7 @@ public class SendPage extends AppCompatActivity implements View.OnClickListener 
     @Override
     public void onClick(View v) {
         if(dest_acc_id.getText().toString().equals("") || send_amt.getText().toString().equals("")) {
-            Toast toast = Toast.makeText(this.getApplicationContext(), "Oops, Please add both destination and amount!", Toast.LENGTH_LONG);
+            Toast toast = Toast.makeText(this.getApplicationContext(), "Oopsieeeeee, Please add both destination and amount!", Toast.LENGTH_LONG);
             toast.setGravity(Gravity.CENTER, 0, 0);
             toast.show();
         } else {

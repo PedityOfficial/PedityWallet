@@ -34,6 +34,8 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        findViewById(R.id.loadingPanel).setVisibility(View.GONE);
+
         mSecretKey = findViewById(R.id.secret_key);
         mSecretKey.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
@@ -50,6 +52,7 @@ public class LoginActivity extends AppCompatActivity {
         mEmailSignInButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
+                findViewById(R.id.loadingPanel).setVisibility(View.VISIBLE);
                 attemptLogin();
             }
         });
@@ -82,11 +85,11 @@ public class LoginActivity extends AppCompatActivity {
         protected Boolean doInBackground(Void... params) {
 
             try {
-            Network.usePublicNetwork();
-            //Log.v("EditText : ", mPassword);
+                Network.usePublicNetwork();
+                //Log.v("EditText : ", mPassword);
 
-            KeyPair keyPair = KeyPair.fromSecretSeed(mPassword);
-            Server server = new Server("http://horizon.stellar.org");
+                KeyPair keyPair = KeyPair.fromSecretSeed(mPassword);
+                Server server = new Server("http://horizon.stellar.org");
 
                 Network.usePublicNetwork();
                 server.accounts().account(keyPair);
