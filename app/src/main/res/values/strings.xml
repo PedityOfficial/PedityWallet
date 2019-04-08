@@ -33,6 +33,7 @@
     <string name="balance_native">0 XLM</string>
     <string name="balance">Balance</string>
     <string name="account_id">AccountId</string>
+    <string name="balance_table">AccountId</string>
 
     <!-- Strings related to Send -->
     <string name="title_activity_send">Send</string>
@@ -70,6 +71,11 @@
     <string-array name="asset_array">
         <item>PEDI</item>
         <item>XLM</item>
+        <item>SLT</item>
+        <item>MOBI</item>
+        <item>RMT</item>
+        <item>FRAS</item>
+        <item>TERN</item>
     </string-array>
     <string-array name="pref_example_list_titles">
         <item>Always</item>

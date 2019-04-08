@@ -13,16 +13,69 @@
         android:id="@+id/loadingPanel"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center" >
+        android:gravity="center">
 
         <ProgressBar
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:indeterminateTint="@android:color/white"
-            android:indeterminate="true" />
+            android:indeterminate="true"
+            android:indeterminateTint="@android:color/white" />
     </RelativeLayout>
 
-    <TextView
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="false">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="vertical"
+            >
+
+            <TableLayout
+                android:id="@+id/balance_table"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:stretchColumns="*"
+                android:padding="5dip"
+                android:divider="@color/black_overlay"
+                android:showDividers="middle">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:background="@drawable/ic_table_cell">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="XLM"
+                        android:gravity="left"
+                        android:textSize="18dp"
+                        android:textStyle="bold"
+                        />
+                    <TextView
+                        android:id="@+id/xlmbalance"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="-"
+                        android:gravity="left"
+                        android:textSize="18dp"
+                        />
+                </TableRow>
+
+
+            </TableLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <!--TextView
         android:id="@+id/balance_amount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -43,7 +96,7 @@
         android:textSize="24sp"
         android:layout_marginTop="150dp"
         android:text="@string/balance_native"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"/>
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"/-->
 
     <ImageView
         android:layout_width="wrap_content"

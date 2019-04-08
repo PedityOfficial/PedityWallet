@@ -123,48 +123,55 @@ public class SendActivity extends Fragment implements View.OnClickListener {
                 server.accounts().account(destination);
 
                 AccountResponse sourceAccount = server.accounts().account(source);
-                KeyPair issuer = KeyPair.fromAccountId("GBVUDZLMHTLMZANLZB6P4S4RYF52MVWTYVYXTQ2EJBPBX4DZI2SDOLLY");
-                Asset pediasset = Asset.createNonNativeAsset("PEDI", issuer);
+                Asset asset;
+                KeyPair issuer;
                 String spintext = spinner.getSelectedItem().toString();
                 if(spintext.equals("PEDI")) {
-                    if (memo_txt.getText().toString().equals("")) {
-                        Transaction transaction = new Transaction.Builder(sourceAccount)
-                                .addOperation(new PaymentOperation.Builder(destination, pediasset, send_amt.getText().toString()).build())
-                                .setTimeout(Transaction.Builder.TIMEOUT_INFINITE)
-                                .build();
-                        transaction.sign(source);
-
-                        SubmitTransactionResponse response = server.submitTransaction(transaction);
-                    } else {
-                        Transaction transaction = new Transaction.Builder(sourceAccount)
-                                .addOperation(new PaymentOperation.Builder(destination, pediasset, send_amt.getText().toString()).build())
-                                .addMemo(Memo.text(memo_txt.getText().toString()))
-                                .setTimeout(Transaction.Builder.TIMEOUT_INFINITE)
-                                .build();
-                        transaction.sign(source);
-
-                        SubmitTransactionResponse response = server.submitTransaction(transaction);
-                    }
-                } else {
-                    if (memo_txt.getText().toString().equals("")) {
-                        Transaction transaction = new Transaction.Builder(sourceAccount)
-                                .addOperation(new PaymentOperation.Builder(destination, new AssetTypeNative(), send_amt.getText().toString()).build())
-                                .setTimeout(Transaction.Builder.TIMEOUT_INFINITE)
-                                .build();
-                        transaction.sign(source);
-
-                        SubmitTransactionResponse response = server.submitTransaction(transaction);
-                    } else {
-                        Transaction transaction = new Transaction.Builder(sourceAccount)
-                                .addOperation(new PaymentOperation.Builder(destination, new AssetTypeNative(), send_amt.getText().toString()).build())
-                                .addMemo(Memo.text(memo_txt.getText().toString()))
-                                .setTimeout(Transaction.Builder.TIMEOUT_INFINITE)
-                                .build();
-                        transaction.sign(source);
-
-                        SubmitTransactionResponse response = server.submitTransaction(transaction);
-                    }
+                    issuer = KeyPair.fromAccountId("GBVUDZLMHTLMZANLZB6P4S4RYF52MVWTYVYXTQ2EJBPBX4DZI2SDOLLY");
+                    asset = Asset.createNonNativeAsset("PEDI", issuer);
                 }
+                else if(spintext.equals("SLT")) {
+                    issuer = KeyPair.fromAccountId("GCKA6K5PCQ6PNF5RQBF7PQDJWRHO6UOGFMRLK3DYHDOI244V47XKQ4GP");
+                    asset = Asset.createNonNativeAsset("SLT", issuer);
+                }
+                else if(spintext.equals("MOBI")) {
+                    issuer = KeyPair.fromAccountId("GA6HCMBLTZS5VYYBCATRBRZ3BZJMAFUDKYYF6AH6MVCMGWMRDNSWJPIH");
+                    asset = Asset.createNonNativeAsset("MOBI", issuer);
+                }
+                else if(spintext.equals("RMT")) {
+                    issuer = KeyPair.fromAccountId("GDEGOXPCHXWFYY234D2YZSPEJ24BX42ESJNVHY5H7TWWQSYRN5ZKZE3N");
+                    asset = Asset.createNonNativeAsset("RMT", issuer);
+                }
+                else if(spintext.equals("FRAS")) {
+                    issuer = KeyPair.fromAccountId("GC75WHUIMU7LV6WURMCA5GGF2S5FWFOK7K5VLR2WGRKWKZQAJQEBM53M");
+                    asset = Asset.createNonNativeAsset("FRAS", issuer);
+                }
+                else if(spintext.equals("TERN")) {
+                    issuer = KeyPair.fromAccountId("GDGQDVO6XPFSY4NMX75A7AOVYCF5JYGW2SHCJJNWCQWIDGOZB53DGP6C");
+                    asset = Asset.createNonNativeAsset("TERN", issuer);
+                }
+                else {
+                    asset = new AssetTypeNative();
+                }
+                if (memo_txt.getText().toString().equals("")) {
+                    Transaction transaction = new Transaction.Builder(sourceAccount)
+                            .addOperation(new PaymentOperation.Builder(destination, asset, send_amt.getText().toString()).build())
+                            .setTimeout(Transaction.Builder.TIMEOUT_INFINITE)
+                            .build();
+                    transaction.sign(source);
+
+                    SubmitTransactionResponse response = server.submitTransaction(transaction);
+                } else {
+                    Transaction transaction = new Transaction.Builder(sourceAccount)
+                            .addOperation(new PaymentOperation.Builder(destination, asset, send_amt.getText().toString()).build())
+                            .addMemo(Memo.text(memo_txt.getText().toString()))
+                            .setTimeout(Transaction.Builder.TIMEOUT_INFINITE)
+                            .build();
+                    transaction.sign(source);
+
+                    SubmitTransactionResponse response = server.submitTransaction(transaction);
+                }
+
             }
             catch (final Exception e) {
                 return false;
